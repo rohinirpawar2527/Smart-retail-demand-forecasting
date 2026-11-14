@@ -1,0 +1,4 @@
+Model,Train_MAE,Test_MAE,Train_RMSE,Test_RMSE,Train_WAPE(%),Test_WAPE(%),Train_R2,Test_R2,Fit_Time_Sec
+Linear Regression,5.633,6.556,7.793,9.675,16.9,16.96,0.8534,0.8418,0.11
+Random Forest Regressor,3.599,5.91,4.805,8.753,10.8,15.29,0.9443,0.8705,3.92
+XGBoost Regressor,4.539,5.686,6.066,8.459,13.62,14.7,0.9112,0.8791,0.73

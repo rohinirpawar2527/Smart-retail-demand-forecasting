@@ -1,28 +1,26 @@
-# Python
+
+# ==========================================
+# SMART RETAIL DEMAND FORECASTING SYSTEM
+# GitHub + Streamlit Community Cloud
+# ==========================================
+
+# Python cache files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Build and distribution
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
+*.egg-info/
 .eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
 wheels/
 share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 MANIFEST
 
-# Virtual Environments
+# Virtual environments
 venv/
 .venv/
 env/
@@ -30,33 +28,50 @@ ENV/
 env.bak/
 venv.bak/
 
-# Environment Variables & Secrets
+# Environment variables and secrets
 .env
 .env.*
 !.env.example
 .streamlit/secrets.toml
+.streamlit/credentials.toml
 
-# IDE & Editor Files
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Jupyter Notebook Checkpoints
+# Jupyter notebook files
 .ipynb_checkpoints/
-*/.ipynb_checkpoints/*
+*/.ipynb_checkpoints/
 
-# Data Files (Keep gitkeep, ignore large data dumps)
+# ==========================================
+# DATASETS
+# Keep deployment datasets
+# ==========================================
 data/*
 !data/.gitkeep
-!data/sample/
+!data/*.csv
 
-# Trained Models & Artifacts
+# ==========================================
+# TRAINED MODELS AND RESULTS
+# Keep required model artifacts
+# ==========================================
 models/*
 !models/.gitkeep
+!models/*.joblib
+!models/*.pkl
+!models/*.csv
 
-# Logs & OS Specific
+# ==========================================
+# Logs and operating system files
+# ==========================================
 *.log
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
