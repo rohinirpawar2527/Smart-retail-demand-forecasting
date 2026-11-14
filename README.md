@@ -1,61 +1,115 @@
 # Smart Retail Demand Forecasting System
 
-An end-to-end Machine Learning and Time Series forecasting application designed to predict product demand, analyze sales patterns, and optimize inventory replenishment for retail operations.
+An end-to-end Machine Learning and Time Series Forecasting application built to analyze retail sales patterns, forecast product demand, and support inventory planning.
 
----
+**Live Demo:** https://rohinirpawar2527-smart-retail-demand-forecasting-app-g1yp7a.streamlit.app/
 
-## 📁 Project Structure
+**GitHub Repository:** https://github.com/rohinirpawar2527/Smart-retail-demand-forecasting
+
+## Project Overview
+
+The Smart Retail Demand Forecasting System is an interactive dashboard designed to help understand retail demand trends and make data-driven inventory decisions.
+
+The dashboard works with retail data covering 2024–2025, representing 5 stores, 20 products, and 73,100 daily records.
+
+## Key Features
+
+- **Overview Dashboard:** View total sales, revenue, daily demand and demand trends.
+- **Data Explorer:** Explore and analyze retail datasets.
+- **Demand Forecasting:** Generate demand predictions using machine learning.
+- **Product Analytics:** Analyze product-level sales and performance.
+- **Inventory Insights:** Explore demand information to support inventory planning.
+- **Model Performance:** Review forecasting model performance.
+
+## Technology Stack
+
+- Python
+- Streamlit
+- Pandas and NumPy
+- Scikit-learn
+- XGBoost
+- LightGBM
+- Statsmodels
+- Plotly
+- Joblib
+
+## Project Structure
 
 ```text
 smart-retail-demand-forecasting/
-├── app.py              # Streamlit web application entry point
-├── requirements.txt    # Project Python dependencies
-├── README.md           # Project documentation and guide
-├── .gitignore          # Git ignore rules for data, models, and environments
-├── data/               # Raw, processed, and sample datasets
-├── models/             # Trained models, encoders, and scaler weights
-├── src/                # Reusable source code (data processing, feature engineering, models)
-├── assets/             # Static assets (images, logos, charts)
-└── notebooks/          # Jupyter notebooks for exploratory data analysis (EDA) and experimentation
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── assets/
+├── data/
+├── models/
+├── notebooks/
+├── src/
+└── tests/
 ```
 
----
-
-## 🚀 Getting Started
+## Installation and Setup
 
 ### 1. Clone the repository
+
 ```bash
-git clone <repository-url>
-cd smart-retail-demand-forecasting
+git clone https://github.com/rohinirpawar2527/Smart-retail-demand-forecasting.git
 ```
 
-### 2. Create and activate a virtual environment
-- **Windows (PowerShell):**
-  ```powershell
-  python -m venv venv
-  .\venv\Scripts\Activate.ps1
-  ```
-- **macOS / Linux:**
-  ```bash
-  python3 -m venv venv
-  source venv/bin/activate
-  ```
+### 2. Open the project folder
 
-### 3. Install dependencies
+```bash
+cd Smart-retail-demand-forecasting
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the environment
+
+Windows PowerShell:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+### 5. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Streamlit application
+### 6. Run the application
+
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
+
+Open the local URL displayed in your terminal.
+
+## Deployment
+
+The application is deployed using Streamlit Community Cloud.
+
+**Live Application:**  
+https://rohinirpawar2527-smart-retail-demand-forecasting-app-g1yp7a.streamlit.app/
+
+## Project Objective
+
+To apply machine learning and data analysis techniques to retail demand forecasting and provide an interactive platform for exploring sales trends, product performance, and inventory-related insights.
+
+## Author
+
+**Rohini Pawar**
+
+GitHub: https://github.com/rohinirpawar2527
 
 ---
 
-## 📌 Project Roadmap
-- [x] Initial project scaffolding & welcome dashboard
-- [ ] Exploratory Data Analysis (EDA) on retail sales and seasonality
-- [ ] Feature engineering (lag features, rolling statistics, calendar indicators)
-- [ ] Baseline & ML forecasting models (LightGBM, XGBoost, Statsmodels)
-- [ ] Interactive Streamlit forecasting and inventory planning dashboard
+If you find this project useful, feel free to explore the repository and the live application.
