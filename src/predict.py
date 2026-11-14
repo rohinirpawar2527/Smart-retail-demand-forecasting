@@ -121,7 +121,7 @@ def get_available_entities(
 def get_series_history(
     store_id: str,
     product_id: str,
-    data_path: Union[str, Path] = DEFAULT_DATA_PATH,
+    data_source: Union[str, Path, pd.DataFrame] = DEFAULT_DATA_PATH,
     min_days: int = 35,
 ) -> Tuple[List[float], str, float, str]:
     """Extract historical sales and attributes for a specific store and product series.
@@ -132,8 +132,8 @@ def get_series_history(
         Target store identifier.
     product_id : str
         Target product identifier.
-    data_path : str or Path
-        Path to processed dataset.
+    data_source : str, Path, or pd.DataFrame
+        Path to processed dataset or loaded DataFrame.
     min_days : int
         Minimum days of history required for lag warm-up (must be >= 28).
 
@@ -142,8 +142,16 @@ def get_series_history(
     Tuple[List[float], str, float, str]
         sales_history (list of float), latest_date_str, latest_price, category
     """
-    df = pd.read_csv(data_path)
-    df["Date"] = pd.to_datetime(df["Date"])
+    if isinstance(data_source, pd.DataFrame):
+        df = data_source.copy()
+    else:
+        path = Path(data_source)
+        if not path.exists():
+            raise FileNotFoundError(f"Processed dataset not found at {path.resolve()}")
+        df = pd.read_csv(path)
+
+    if not pd.api.types.is_datetime64_any_dtype(df["Date"]):
+        df["Date"] = pd.to_datetime(df["Date"])
 
     series_df = df[(df["Store_ID"] == store_id) & (df["Product_ID"] == product_id)]
     if series_df.empty:
@@ -173,7 +181,7 @@ def forecast_demand_recursive(
     start_date: Optional[str] = None,
     planned_promotions: Optional[Dict[str, int]] = None,
     custom_prices: Optional[Dict[str, float]] = None,
-    data_path: Union[str, Path] = DEFAULT_DATA_PATH,
+    data_source: Union[str, Path, pd.DataFrame] = DEFAULT_DATA_PATH,
     model_bundle_path: Union[str, Path] = DEFAULT_MODEL_PATH,
 ) -> pd.DataFrame:
     """Generate recursive multi-step retail demand forecasts.
@@ -230,7 +238,7 @@ def forecast_demand_recursive(
     sales_history, latest_date_str, latest_price, category = get_series_history(
         store_id=store_id,
         product_id=product_id,
-        data_path=data_path,
+        data_source=data_source,
         min_days=35,
     )
 
